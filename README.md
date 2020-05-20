@@ -7,7 +7,9 @@ The four prototype pages which will be linked back to the main website:
   - react-chefGuide-rec: chef guide webpage which is directed from shared links from friends
   - react-filter-rec: the restaurants filtering function according to suburbs. The api data is fake data
 
+Below is the display of Chef Guide recommendation page:
 
+![alt text](https://github.com/mickey7799/hfg-recommendationPages/blob/master/Chef-Guide-share-1.png?raw=true)
 
 
 
