@@ -7,7 +7,13 @@ import Header from './Components/Header';
 import Form from './Components/Form';
 import Footer from './Components/Footer';
 
+const baseLocation = 'Taiwan';
+const baseType = 'breakfast';
+
 export default class App extends Component {
+
+  
+
   // state = {
   //   chef: {
   //     name: "Tom Nijam",
@@ -24,7 +30,7 @@ export default class App extends Component {
   
   componentDidMount() {
 
-    axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${options[3]}`, 
+    axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${baseLocation}`, 
     {headers: {
        Authorization: `Bearer ${apiKey}`
     }}).then(res =>{      
