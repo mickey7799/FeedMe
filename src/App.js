@@ -23,14 +23,26 @@ export default class App extends Component {
   
   
   componentDidMount() {
-  
-    axios.get(`https://api.staging.hfg.clients.pipelabs.com.au/recommendation?skip=0&limit=1`,
-      { headers: {"Authorization" : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNTIxYjUzNTEzYmY4YzM2OThjZWY5NiIsImVtYWlsIjoibWF0dEBwaXBlbGFicy5jb20uYXUiLCJmaXJzdE5hbWUiOiJNYXR0IiwibGFzdE5hbWUiOiJIYXl3YXJkIiwiZnVsbE5hbWUiOiJNYXR0IEhheXdhcmQiLCJ0eXBlIjoiQURNSU4iLCJpYXQiOjE1NDk2ODk3NjcsImV4cCI6MTU4MTIyNTc2N30.gn97HUgo9jAOs1Mr9L_AQFaHTzXzykv_PXLuBh_i26k'} })
-      .then(res => {
+
+    axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${options[3]}`, 
+    {headers: {
+       Authorization: `Bearer ${apiKey}`
+    }}).then(res =>{      
         const chef = res.data;
-        this.setState({ chef: chef.recommendations[0] });
-        console.log(chef.recommendations[0]);
-      })
+        console.log(chef)
+        this.setState({chef: chef.businesses});
+        
+    }) .catch((err) => {
+      console.log ('error')
+    })
+  
+    // axios.get(`https://api.staging.hfg.clients.pipelabs.com.au/recommendation?skip=0&limit=1`,
+    //   { headers: {"Authorization" : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNTIxYjUzNTEzYmY4YzM2OThjZWY5NiIsImVtYWlsIjoibWF0dEBwaXBlbGFicy5jb20uYXUiLCJmaXJzdE5hbWUiOiJNYXR0IiwibGFzdE5hbWUiOiJIYXl3YXJkIiwiZnVsbE5hbWUiOiJNYXR0IEhheXdhcmQiLCJ0eXBlIjoiQURNSU4iLCJpYXQiOjE1NDk2ODk3NjcsImV4cCI6MTU4MTIyNTc2N30.gn97HUgo9jAOs1Mr9L_AQFaHTzXzykv_PXLuBh_i26k'} })
+    //   .then(res => {
+    //     const chef = res.data;
+    //     this.setState({ chef: chef.recommendations[0] });
+    //     console.log(chef.recommendations[0]);
+    //   })
   }
 
   render() {
