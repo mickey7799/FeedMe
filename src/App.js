@@ -33,7 +33,11 @@ export default class App extends Component {
     axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${baseLocation}`, 
     {headers: {
        Authorization: `Bearer ${apiKey}`
-    }}).then(res =>{      
+    },
+    params: {
+      categories: {baseType},
+    }
+  }).then(res =>{      
         const chef = res.data;
         console.log(chef)
         this.setState({chef: chef.businesses});
