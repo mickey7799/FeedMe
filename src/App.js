@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import { apiKey } from "./Components/config";
 import Company from './Components/Company';
 import Chef from './Components/Chef';
 import Header from './Components/Header';
