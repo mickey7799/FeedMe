@@ -16,7 +16,7 @@ function App(){
             profileUrl: "https://d1qb2nb5cznatu.cloudfront.net/users/8627618-medium_jpg?1543043897",
             comment:"\"Without the doubt, the best chicken you ever eat\"",
             url: "https://res.cloudinary.com/hksqkdlah/image/upload/s--C9EcOChh--/c_scale,dpr_2.0,f_auto,h_172,q_auto:low,w_172/34448_sfs-north-carolina-dipped-fried-chicken-18",
-            venue: 'KFC'
+            categories: [{title:'breakfast'}]
         }
     );
 
@@ -37,8 +37,8 @@ function App(){
               profileUrl= {recommendation.profileUrl}
               comment={recommendation.comment}
               url={recommendation.url}  
-              website={recommendation.url} 
-              venue={recommendation.venue}
+              website={recommendation.url}
+              categories = {recommendation.categories}
               />
               <Company className="company-container" />
             </div>
