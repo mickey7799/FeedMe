@@ -1,9 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ChefRecommendation
+A prototype page of a single page application to show the recommendation of restaurants by chefs when users click the link shared by friends of that particular restaurant.
 
-## Available Scripts
+The data is passed by api containing a specific restaurant information
 
-In the project directory, you can run:
 
+<<<<<<< HEAD
 ### `yarn start`
 
 Runs the app in the development mode.<br />
@@ -66,3 +67,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+=======
+>>>>>>> 415817ca53bd0f9076f38ce16f1164fa7d8b584b
