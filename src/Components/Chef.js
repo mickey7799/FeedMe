@@ -156,11 +156,9 @@ const Commnet = styled.div`
     font-family: 'Inter beta', sans-serif;
     font-weight: 300;
     font-size: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
     max-width: 400px;
+    height: 5em;
     @media (max-width: 769px){
         margin-right: 25px;
         margin-bottom: 25px;

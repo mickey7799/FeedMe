@@ -7,6 +7,40 @@ import Chef from './Components/Chef';
 import Header from './Components/Header';
 import Form from './Components/Form';
 import Footer from './Components/Footer';
+import styled from 'styled-components';
+
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5% auto 3%;
+    max-width: 1000px;
+    @media (max-width: 1000px){
+        margin: 4% 3% -20px;   
+    }
+    @media (max-width: 769px){
+        margin: auto;
+    }
+    @media (max-width: 360px){
+        margin: 3px;
+    }
+    
+
+`;
+
+const ShareWrapper = styled.div`
+    height: auto;
+    padding: 80px 0px;
+    background-color: #19B5FE;
+    @media (max-width: 769px){
+        margin-top: 30px;
+        padding: 60px 0px;
+    }
+    
+`;
+
+
 
 function App(){
     const [recommendation, setRecommendation] = useState(
@@ -30,8 +64,8 @@ function App(){
       return (
         <div>
             <Header/>
-            <div className="flex-container-row all-container">
-              <Chef className="chef-container"
+            <Wrapper>
+              <Chef 
               name= {recommendation.name}
               title = {recommendation.title}
               profileUrl= {recommendation.profileUrl}
@@ -40,11 +74,11 @@ function App(){
               website={recommendation.url}
               categories = {recommendation.categories}
               />
-              <Company className="company-container" />
-            </div>
-            <div id="Download" className="download">
+              <Company/>
+            </Wrapper>
+            <ShareWrapper>
               <Form/>
-            </div>
+            </ShareWrapper>
             <Footer/>
         </div>
       )
