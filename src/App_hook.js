@@ -40,8 +40,6 @@ const ShareWrapper = styled.div`
     
 `;
 
-
-
 function App(){
     const [recommendation, setRecommendation] = useState(
         {
@@ -56,7 +54,7 @@ function App(){
 
     if(recommendation===null){
         return (
-        <div className="App-header App">
+        <div>
           Loading...
         </div>
         )
