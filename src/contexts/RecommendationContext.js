@@ -10,24 +10,26 @@ const RecommendationContextProvider = props => {
     runSearch('Melbourne', 'Dessert');
   }, [])
   const runSearch = (location, type) => {
-    axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${location}`, 
-    {headers: {
-       Authorization: `Bearer ${apiKey}`
-    },
-    params: {
-      categories: type,
-      limit: 1
-    }
-    }).then(res =>{    
-       console.log(res.data.businesses);
+    axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${location}`,
+      {
+        headers: {
+          Authorization: `Bearer ${apiKey}`
+        },
+        params: {
+          categories: type,
+          limit: 1
+        }
+      }).then(res => {
+        //console.log(res.data.businesses);
         setRecommendations(res.data.businesses);
         console.log(recommendations);
         setLoading(false);
-        
-    }) .catch((err) => {
-      console.log ('error')
-    })
+
+      }).catch((err) => {
+        console.log('error')
+      })
   };
+  console.log(recommendations);
   return (
     <RecommendationContext.Provider value={{ recommendations, loading, runSearch }}>
       {props.children}
