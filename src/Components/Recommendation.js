@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { useContext  } from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import styled from 'styled-components';
+import {RecommendationContext} from '../contexts/RecommendationContext'
 
 
 const Card = styled.div`
@@ -201,42 +202,32 @@ const FoodImg = styled.div`
 
 `;
 
-export default class Chef extends Component {
+const Recommendation = props => {
+    const {recommendations, loading} = useContext(RecommendationContext);
+    return (
+        <Card>
+            <Wrapper>
+                <Profile profileUrl={recommendations.image_url} />
+                <InfoWrapper>
+                    <Name>{recommendations.name}</Name>
+                    <DescriptionWrapper>
+                        <div>Food expert of</div>
+                        <Description> {recommendations.categories[0].title} </Description>
+                    </DescriptionWrapper>
+                </InfoWrapper>
+            </Wrapper>
+            <Commnet>
+                <LinesEllipsis
+                    text={'This fantastic restaurant is a ' + recommendations.categories[0].title + ' restaurant! It received ' + recommendations.review_count + ' reviews and got a rating of ' + recommendations.rating + ". Come and try it!"}
+                    maxLine='3'
+                    ellipsis='...'
+                    trimRight
+                />
+            </Commnet>
+            <FoodImg url={recommendations.image_url} />
+        </Card>
 
-    render(){
-        const { profileUrl, name, url, rating, review_count, categories  } = this.props;
-        
-
-        return (
-            
-            
-                <Card>
-                    <Wrapper>    
-                        <Profile profileUrl={profileUrl}/>               
-                        <InfoWrapper>
-                            <Name>{name}</Name>
-                            <DescriptionWrapper>
-                            Food expert of
-                            <Description> {categories[0].title} </Description>
-                            </DescriptionWrapper>
-                        </InfoWrapper>
-
-                    </Wrapper>
-
-                        <Commnet>
-                        <LinesEllipsis
-                        text= {'This fantastic restaurant is a '+ categories[0].title +' restaurant! It received ' + review_count + ' reviews and got a rating of '+rating + ". Come and try it!"}
-                        maxLine='3'
-                        ellipsis='...'
-                        trimRight
-                        
-                        />
-                        </Commnet>
-                        <FoodImg url={url}/>
-                       
-                       
-               </Card> 
-            
-        );
-    }
+    );
 }
+
+export default Recommendation;
