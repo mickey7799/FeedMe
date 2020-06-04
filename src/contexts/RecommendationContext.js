@@ -1,21 +1,27 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { apiKey } from "../components/config";
-export const PhotoContext = createContext();
+export const RecommendationContext = createContext();
 
-const PhotoContextProvider = props => {
-  const [photos, setPhotos] = useState([]);
+const RecommendationContextProvider = props => {
+  const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    runSearch('Melbourne', 'Dessert');
+  }, [])
   const runSearch = (location, type) => {
     axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${location}`, 
     {headers: {
        Authorization: `Bearer ${apiKey}`
     },
     params: {
-      categories: {type},
+      categories: type,
+      limit: 1
     }
-    }).then(res =>{      
-        setPhotos(res.data.businesses);
+    }).then(res =>{    
+       console.log(res.data.businesses);
+        setRecommendations(res.data.businesses);
+        console.log(recommendations);
         setLoading(false);
         
     }) .catch((err) => {
@@ -23,10 +29,10 @@ const PhotoContextProvider = props => {
     })
   };
   return (
-    <PhotoContext.Provider value={{ photos, loading, runSearch }}>
+    <RecommendationContext.Provider value={{ recommendations, loading, runSearch }}>
       {props.children}
-    </PhotoContext.Provider>
+    </RecommendationContext.Provider>
   );
 };
 
-export default PhotoContextProvider;
+export default RecommendationContextProvider;

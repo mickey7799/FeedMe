@@ -1,8 +1,8 @@
 import React, { useContext  } from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
 import styled from 'styled-components';
-import {RecommendationContext} from '../contexts/RecommendationContext'
-
+import {RecommendationContext} from '../contexts/RecommendationContext';
+import Loader from './Loader';
 
 const Card = styled.div`
     display: flex;
@@ -202,9 +202,12 @@ const FoodImg = styled.div`
 
 `;
 
-const Recommendation = props => {
+const Recommendation = () => {
     const {recommendations, loading} = useContext(RecommendationContext);
-    return (
+
+    return loading ? (
+        <Loader/>
+    ): (
         <Card>
             <Wrapper>
                 <Profile profileUrl={recommendations.image_url} />
@@ -212,22 +215,23 @@ const Recommendation = props => {
                     <Name>{recommendations.name}</Name>
                     <DescriptionWrapper>
                         <div>Food expert of</div>
-                        <Description> {recommendations.categories[0].title} </Description>
+                        <Description> {recommendations.alias} </Description>
                     </DescriptionWrapper>
                 </InfoWrapper>
             </Wrapper>
             <Commnet>
                 <LinesEllipsis
-                    text={'This fantastic restaurant is a ' + recommendations.categories[0].title + ' restaurant! It received ' + recommendations.review_count + ' reviews and got a rating of ' + recommendations.rating + ". Come and try it!"}
+                    text={'This fantastic restaurant is a ' + recommendations.price + ' restaurant! It received ' + recommendations.review_count + ' reviews and got a rating of ' + recommendations.rating + ". Come and try it!"}
                     maxLine='3'
                     ellipsis='...'
                     trimRight
                 />
             </Commnet>
             <FoodImg url={recommendations.image_url} />
+            
         </Card>
 
-    );
+    )
 }
 
 export default Recommendation;

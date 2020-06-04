@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
-import Search from './search';
-
-
+import SearchForm from './SearchForm';
+import {RecommendationContext} from '../contexts/RecommendationContext';
 
 const Wrapper = styled.div`
     display: flex; 
@@ -81,25 +80,26 @@ const Rating = styled.div`
     }
 `;
 
+const Span = styled.span`
+    margin-top: 30px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+`;
 
-function SearchView(){
-
+const SearchView = () => {
+    const { recommendations } = useContext(RecommendationContext);
 
     return (
         <Wrapper>
-                    <SearchWrapper> 
-                        <Search/>
-                    </SearchWrapper>
-                    
-                    <LocationTitle>Discover better restaurants, faster, with Hood Food Guide.</LocationTitle>
-                    <Rating>   
-                        See where top chefs &amp; restaurant owners  
-                        <br/>
-                        love to eat in every neighbourhood.
-                        <br/>  
-                        <br/>
-                        <span className="text-span">Download &amp; try Hood Food Guide today.</span>
-                    </Rating>
+            <SearchWrapper> 
+                <SearchForm/>
+            </SearchWrapper>
+            
+            {/* <LocationTitle>You're searching for a {recommendations.categories[0].title} restaurant</LocationTitle> */}
+            <Rating>   
+                <Span>There are {recommendations.review_count} reviews!!!</Span>
+                <Span>The rating of this restaurant is {recommendations.rating}</Span>
+            </Rating>
                         
                         
                     

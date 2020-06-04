@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
+import {RecommendationContext} from '../contexts/RecommendationContext';
 
 const Form = styled.form`
     position: center;
@@ -59,38 +60,37 @@ const SubmitInput = styled.input`
 `;
 
 
-function Search(){
+const SearchForm = () => {
+    const { runSearch } = useContext(RecommendationContext);
 
-    const [info, setInfo] = useState(
-        {
-            location: '',
-            type: ''
-        }
-    );
+    const [location, setLocation] = useState('');
+    const [type, setType] = useState('');
 
     const handleSubmit = e => {
         e.preventDefault();
-        if(!info) return;
-        setInfo(info);
+        if(!location||!type) return;
+        runSearch(location, type);
+        setLocation('');
+        setType('');
     }
 
     return (
         <Form onSubmit={handleSubmit}>
           <LocationInput
             type="text"
-            value={info.location}
-            onChange={e => setInfo(e.target.value)}
+            value={location}
+            onChange={e => setLocation(e.target.value)}
             placeholder="Location"
           />
           <TypeInput
             type="text"
-            value={info.type}
-            onChange={e => setInfo(e.target.value)}
-            placeholder="Restaurant Type"
+            value={type}
+            onChange={e => setType(e.target.value)}
+            placeholder="Breakfast"
           />
           <SubmitInput type="submit" value="Search" />
         </Form>
 
     )
 }
-export default Search;
+export default SearchForm;

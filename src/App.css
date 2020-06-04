@@ -124,18 +124,9 @@ img {
   vertical-align: middle;
   display: inline-block;
 }
-
 .logo.mobile {
   display: none;
-  
 }
-.text-span{
-  margin-top: 30px;
-  font-family: Inter, sans-serif;
-  font-weight: 600;
-  
-}
-
 .recommended-venue {
   margin-right: 15px;
   margin-bottom: 10px;

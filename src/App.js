@@ -1,88 +1,62 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import axios from 'axios';
-import { apiKey } from "./Components/config";
-import Company from './Components/Company';
-import Chef from './Components/Chef';
-import Header from './Components/Header';
-import Form from './Components/Form';
-import Footer from './Components/Footer';
+import SearchView from './components/SearchView';
+import Recommendation from './components/Recommendation';
+import Header from './components/Header';
+import Form from './components/Form';
+import Footer from './components/Footer';
+import styled from 'styled-components';
+import RecommendationContextProvider from "./contexts/RecommendationContext";
 
-const baseLocation = 'Taiwan';
-const baseType = 'breakfast';
 
-export default class App extends Component {
-
-  
-
-  // state = {
-  //   chef: {
-  //     name: "Tom Nijam",
-  //     title: "Exec Chef of KFC",
-  //     profileUrl: "https://d1qb2nb5cznatu.cloudfront.net/users/8627618-medium_jpg?1543043897",
-  //     comment:"\"Without the doubt, the best chicken you ever eat\"",
-  //     url: "https://res.cloudinary.com/hksqkdlah/image/upload/s--C9EcOChh--/c_scale,dpr_2.0,f_auto,h_172,q_auto:low,w_172/34448_sfs-north-carolina-dipped-fried-chicken-18"
-  //   }
-  // }
-  state = {
-    chef: null
-  }
-  
-  
-  componentDidMount() {
-
-    axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${baseLocation}`, 
-    {headers: {
-       Authorization: `Bearer ${apiKey}`
-    },
-    params: {
-      categories: {baseType},
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5% auto 3%;
+    max-width: 1000px;
+    @media (max-width: 1000px){
+        margin: 4% 3% -20px;   
     }
-  }).then(res =>{      
-        const chef = res.data;
-        console.log(chef)
-        this.setState({chef: chef.businesses});
-        
-    }) .catch((err) => {
-      console.log ('error')
-    })
-  
-    // axios.get(`https://api.staging.hfg.clients.pipelabs.com.au/recommendation?skip=0&limit=1`,
-    //   { headers: {"Authorization" : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNTIxYjUzNTEzYmY4YzM2OThjZWY5NiIsImVtYWlsIjoibWF0dEBwaXBlbGFicy5jb20uYXUiLCJmaXJzdE5hbWUiOiJNYXR0IiwibGFzdE5hbWUiOiJIYXl3YXJkIiwiZnVsbE5hbWUiOiJNYXR0IEhheXdhcmQiLCJ0eXBlIjoiQURNSU4iLCJpYXQiOjE1NDk2ODk3NjcsImV4cCI6MTU4MTIyNTc2N30.gn97HUgo9jAOs1Mr9L_AQFaHTzXzykv_PXLuBh_i26k'} })
-    //   .then(res => {
-    //     const chef = res.data;
-    //     this.setState({ chef: chef.recommendations[0] });
-    //     console.log(chef.recommendations[0]);
-    //   })
-  }
+    @media (max-width: 769px){
+        margin: auto;
+    }
+    @media (max-width: 360px){
+        margin: 3px;
+    }
+    
 
-  render() {
-    if(this.state.chef===null){
-      return (
-      <div className="App-header App">
-        Loading...
-      </div>)
-    }else{
-    return (
-      <div>
-          <Header/>
-          <div className="flex-container-row all-container">
-            <Chef className="chef-container"
-            name= {this.state.chef.author.fullName}
-            
-            profileUrl= {this.state.chef.author.profilePicture}
-            comment={this.state.chef.text}
-            url={this.state.chef.photos[0].url}  
-            website={this.state.chef.venue.website} 
-            venue={this.state.chef.venue.name}
-            />
-            <Company className="company-container" />
-          </div>
-          <div id="Download" className="download">
-            <Form/>
-          </div>
-          <Footer/>
-      </div>
-    )}
-  }
+`;
+
+const ShareWrapper = styled.div`
+    height: auto;
+    padding: 80px 0px;
+    background-color: #19B5FE;
+    @media (max-width: 769px){
+        margin-top: 30px;
+        padding: 60px 0px;
+    }
+    
+`;
+
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <Wrapper>
+        <RecommendationContextProvider>
+          <Recommendation />
+          <SearchView />
+        </RecommendationContextProvider>
+      </Wrapper>
+      <ShareWrapper>
+        <Form />
+      </ShareWrapper>
+      <Footer />
+    </div>
+  )
 }
+
+
+
+export default App;
