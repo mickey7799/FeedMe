@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import {RecommendationContext} from '../contexts/RecommendationContext';
 
 const Form = styled.form`
-    position: center;
-    margin: 1em 2em;
+    margin: 1em 2em 0em 2em;
     display: flex;
     background-color: #19B5FE;
 `;
@@ -14,14 +13,14 @@ const LocationInput = styled.input`
     border-width: 0 0 1px 0;
     margin: 15px 10px 15px 15px;
     padding: 10px;
-    background-color: #FFFFFF;
+    background-color: #F8F8F8;
     border-style: none;
     text-shadow: none;
     color: #5f6368;
     outline: none;
 
     &:focus {
-        background-color: 	#F8F8F8;
+        background-color: #FFFFFF;
     }
 `;
 
@@ -30,14 +29,14 @@ const TypeInput = styled.input`
     border-width: 0 0 1px 0;
     margin: 15px 10px 15px 15px;
     padding: 10px;
-    background-color: #FFFFFF;
+    background-color: #F8F8F8;
     border-style: none;
     text-shadow: none;
     color: #5f6368;
     outline: none;
 
     &:focus {
-        background-color: 	#F8F8F8;
+        background-color:#FFFFFF;
     }
 `;
 
@@ -53,7 +52,7 @@ const SubmitInput = styled.input`
     text-shadow: none;
 
     &:hover {
-        background: #4b71b5;
+        background: #F22613;
         color: #fafafa;
         cursor: pointer;
     }
@@ -80,13 +79,13 @@ const SearchForm = () => {
             type="text"
             value={location}
             onChange={e => setLocation(e.target.value)}
-            placeholder="Location"
+            placeholder="Location (Melbourne)"
           />
           <TypeInput
             type="text"
             value={type}
             onChange={e => setType(e.target.value)}
-            placeholder="Breakfast"
+            placeholder="Type (Breakfast)"
           />
           <SubmitInput type="submit" value="Search" />
         </Form>

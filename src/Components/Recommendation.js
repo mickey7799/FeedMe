@@ -204,7 +204,7 @@ const FoodImg = styled.div`
 
 const Recommendation = () => {
     const {recommendations, loading} = useContext(RecommendationContext);
-
+    
     return loading ? (
         <Loader/>
     ): (
@@ -215,13 +215,13 @@ const Recommendation = () => {
                     <Name>{recommendations.name}</Name>
                     <DescriptionWrapper>
                         <div>Food expert of</div>
-                        <Description> {recommendations.alias} </Description>
+                        <Description> {recommendations.categories[0].title} </Description>
                     </DescriptionWrapper>
                 </InfoWrapper>
             </Wrapper>
             <Commnet>
                 <LinesEllipsis
-                    text={'This fantastic restaurant is a ' + recommendations.price + ' restaurant! It received ' + recommendations.review_count + ' reviews and got a rating of ' + recommendations.rating + ". Come and try it!"}
+                    text={'This fantastic restaurant is a ' + recommendations.categories[0].title + ' restaurant! It received ' + recommendations.review_count + ' reviews and got a rating of ' + recommendations.rating + ". Come and try it!"}
                     maxLine='3'
                     ellipsis='...'
                     trimRight

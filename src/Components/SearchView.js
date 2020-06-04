@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import styled from 'styled-components';
 import SearchForm from './SearchForm';
 import {RecommendationContext} from '../contexts/RecommendationContext';
+import Loader from './Loader';
 
 const Wrapper = styled.div`
     display: flex; 
@@ -21,7 +22,7 @@ const Wrapper = styled.div`
 `;
 
 const SearchWrapper = styled.div`
-    flex-grow: 1.5;
+    flex-grow: 0.5;
     margin-bottom: auto;
     padding-top: 3%; 
     @media (max-width: 1000px){
@@ -36,13 +37,14 @@ const SearchWrapper = styled.div`
 `;
 
 const LocationTitle = styled.div`
-    font-size: 32px;
+    flex-grow: 1;
+    font-size: 28px;
     line-height: 1.3;
     font-family: Inter, sans-serif;
-    color: #5f6368;
+    color: #19B5FE;
     font-weight: 700;
     letter-spacing: -1px;
-    margin: 1em 1em 2em 1em;
+    margin: 0em 2em;
     @media (max-width: 1000px){
         font-size: 28px;
         line-height: 1.3;
@@ -65,9 +67,10 @@ const LocationTitle = styled.div`
 `;
 
 const Rating = styled.div`
+    flex-grow: 1.5;
     font-family: 'Inter', sans-serif;
     color: #5f6368;
-    margin: 0em 1em 2em 1em;
+    margin: 0em 1em 0em 1em;
     font-weight: 300;
     font-size: 1.5em;
     line-height: 1.6em;
@@ -80,28 +83,30 @@ const Rating = styled.div`
     }
 `;
 
-const Span = styled.span`
-    margin-top: 30px;
+const Div = styled.div`
+    margin: 0em 2em 0em 2em;
     font-family: Inter, sans-serif;
     font-weight: 600;
+    color:#5f6368;
 `;
 
 const SearchView = () => {
-    const { recommendations } = useContext(RecommendationContext);
+    const { recommendations, loading } = useContext(RecommendationContext);
 
-    return (
+    return loading ? (
+        <Loader/>
+    ): (
         <Wrapper>
             <SearchWrapper> 
                 <SearchForm/>
             </SearchWrapper>
             
-            {/* <LocationTitle>You're searching for a {recommendations.categories[0].title} restaurant</LocationTitle> */}
+            <LocationTitle>You're searching for a {recommendations.categories[0].title} restaurant</LocationTitle>
             <Rating>   
-                <Span>There are {recommendations.review_count} reviews!!!</Span>
-                <Span>The rating of this restaurant is {recommendations.rating}</Span>
-            </Rating>
-                        
-                        
+                <Div>There are {recommendations.review_count} reviews!!!</Div>
+                <Div>The rating of this restaurant is {recommendations.rating}</Div>
+                <Div>The price range of this restaurant is {recommendations.price}</Div>
+            </Rating>                
                     
         </Wrapper>
 
