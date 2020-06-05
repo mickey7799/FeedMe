@@ -72,14 +72,14 @@ const Profile = styled.div`
     height: 75px;
     background-size: cover;
     background-position: center;
-    background-image: url(${props => props.profileUrl});
+    background-image: url("/images/child.svg");
     @media (max-width: 769px){
         width: 100px;
         height: 100px;
     }
 `;
 const InfoWrapper = styled.div`
-    margin-left: 10px;
+    margin-left: 20px;
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;

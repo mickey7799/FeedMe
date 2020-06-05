@@ -15,7 +15,9 @@ const RecommendationContextProvider = props => {
         },
         params: {
           categories: type,
-          limit: 1
+          sort_by: 'rating',
+          limit: 1,
+          open_now: true
         }
       }).then(res => {
         console.log(res.data.businesses[0]);
@@ -28,7 +30,7 @@ const RecommendationContextProvider = props => {
   }, []);
 
   useEffect(() => {
-    runSearch('Taiwan', 'Breakfast');
+    runSearch('US', 'Breakfast');
   }, [runSearch])
   
   return (
