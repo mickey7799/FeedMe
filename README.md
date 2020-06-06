@@ -5,7 +5,7 @@
 
 ### Overview
 
-Feed Me is a single page application created using React, React Hooks, and Context API. The images were displayed using the Yelp API and axios to fetch data. Users can type in a location and a type of restaurant to get a currently open and hight rating restaurant with the restaurant information such as its price, ratings, number of reviews, address showed.
+Feed Me is a single page application created using React, React Hooks, Context API, and styled-components. The images were displayed using the Yelp API and axios to fetch data. Users can type in a location and a type of restaurant to get a currently open and high-rating restaurant with the restaurant information (such as its price, ratings, number of reviews, address, phone.) shown in the business card, which can be filpped over. 
 
 ### Motivation
 
