@@ -6,7 +6,7 @@ export const RecommendationContext = createContext();
 const RecommendationContextProvider = props => {
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
-  const apiKey = process.env.AUTH_TOKEN;
+  const apiKey = process.env.REACT_APP_AUTH_TOKEN;
   
   const runSearch = useCallback((location, type) => {
     axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${location}`,
