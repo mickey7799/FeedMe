@@ -15,7 +15,6 @@ const RecommendationContextProvider = props => {
         },
         params: {
           categories: type,
-          sort_by: 'rating',
           limit: 1,
           open_now: true
         }

@@ -12,7 +12,9 @@ import RecommendationContextProvider from "./contexts/RecommendationContext";
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
     margin: 5% auto 3%;
     max-width: 1000px;
     @media (max-width: 1000px){
@@ -20,9 +22,10 @@ const Wrapper = styled.div`
     }
     @media (max-width: 769px){
         margin: auto;
+        justify-content: center;
     }
     @media (max-width: 360px){
-        margin: 3px;
+        // margin: 3px;
     }
     
 

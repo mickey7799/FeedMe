@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SearchForm from './SearchForm';
 import {RecommendationContext} from '../contexts/RecommendationContext';
 import Loader from './Loader';
+import BusinessCard from './BusinessCard';
 
 const Wrapper = styled.div`
     display: flex; 
@@ -25,6 +26,8 @@ const SearchWrapper = styled.div`
     flex-grow: 0.5;
     margin-bottom: auto;
     padding-top: 3%; 
+    margin: 1rem 2rem 0rem 2rem;
+    width: 34rem;
     @media (max-width: 1000px){
         flex-grow: 0.5;
     }
@@ -34,17 +37,21 @@ const SearchWrapper = styled.div`
         padding-top: 20%;
         margin: auto;
     }
+    @media (max-width: 415px){
+        width: 30em;
+    }
 `;
 
 const LocationTitle = styled.div`
     flex-grow: 1;
-    font-size: 28px;
+    width: 34rem;
+    margin: 2rem 2rem 2rem 2rem;
+    font-size: 24px;
     line-height: 1.3;
     font-family: Inter, sans-serif;
-    color: #19B5FE;
-    font-weight: 700;
+    font-weight: 500;
+    text-align: center;
     letter-spacing: -1px;
-    margin: 0em 2em;
     @media (max-width: 1000px){
         font-size: 28px;
         line-height: 1.3;
@@ -59,10 +66,11 @@ const LocationTitle = styled.div`
         text-align: center;
     }
     @media (max-width: 415px){
-        font-size: 32px;
+        font-size: 24px;
         line-height: 1.3;
-        margin-bottom: 20px;
-        margin-top: 50px;
+        width: 30em;
+        padding: 0em 2em;
+        margin: 1em;
     }
 `;
 
@@ -70,7 +78,7 @@ const Rating = styled.div`
     flex-grow: 1.5;
     font-family: 'Inter', sans-serif;
     color: #5f6368;
-    margin: 0em 1em 0em 1em;
+    // margin: 0em 1em 0em 1em;
     font-weight: 300;
     font-size: 1.5em;
     line-height: 1.6em;
@@ -83,12 +91,6 @@ const Rating = styled.div`
     }
 `;
 
-const Div = styled.div`
-    margin: 0em 2em 0em 2em;
-    font-family: Inter, sans-serif;
-    font-weight: 600;
-    color:#5f6368;
-`;
 
 const SearchView = () => {
     const { recommendations, loading } = useContext(RecommendationContext);
@@ -101,11 +103,9 @@ const SearchView = () => {
                 <SearchForm/>
             </SearchWrapper>
             
-            <LocationTitle>You're searching for a {recommendations.categories[0].title} restaurant</LocationTitle>
+            <LocationTitle>You're searching for a {recommendations.categories[0].title} restaurant in {recommendations.location.city} !!! Click the card below for more details!</LocationTitle>
             <Rating>   
-                <Div>There are {recommendations.review_count} reviews!!!</Div>
-                <Div>The rating of this restaurant is {recommendations.rating}</Div>
-                <Div>The price range of this restaurant is {recommendations.price}</Div>
+                <BusinessCard/>
             </Rating>                
                     
         </Wrapper>

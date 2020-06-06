@@ -184,6 +184,7 @@ img {
 
 .download-container {
   height: 100%;
+  width: auto;
 }
 .download-wrapper {
   display: -webkit-box;
@@ -398,6 +399,7 @@ a:active, a:hover {
 }
 
 @media (max-width: 415px){
+
 .h-logo {
     margin-left: 10px;
 }

@@ -16,23 +16,10 @@ const Card = styled.div`
     border-radius: 7px;
     background-color: #fcfcfc;
     box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, .1);
-    @media (max-width: 1000px){
-        width: 275px;
-    }
     @media (max-width: 769px){
-        min-width: 400px;
-        width: 70%;
-        flex: 1 1 50%;
+        margin-top: 5em;
+        min-width: 353.5px;
     }
-    @media (max-width: 415px){
-        min-width: 330px;
-        width: 70%;
-    }
-    @media (max-width: 360px){
-        min-width: 275px;
-        width: 70%;
-    }
-
 `;
 
 const Wrapper = styled.div`
@@ -183,22 +170,6 @@ const FoodImg = styled.div`
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     background-image: url(${props => props.url});
-    @media (max-width: 1000px){
-        width: 273.5px;
-        height: 273.5px;
-    }
-    @media (max-width: 769px){
-        width: 398.5px;
-        height: 398.5px;
-    }
-    @media (max-width: 415px){
-        width: 328.5px;
-        height: 328.5px;
-    }
-    @media (max-width: 360px){
-        width: 273.5px;
-        height: 273.5px;
-    }
 
 `;
 

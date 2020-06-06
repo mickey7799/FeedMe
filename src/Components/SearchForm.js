@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import {RecommendationContext} from '../contexts/RecommendationContext';
 
 const Form = styled.form`
-    margin: 1em 2em 0em 2em;
     display: flex;
     background-color: #19B5FE;
 `;
@@ -55,6 +54,7 @@ const SubmitInput = styled.input`
         background: #F22613;
         color: #fafafa;
         cursor: pointer;
+        border: none;
     }
 `;
 
