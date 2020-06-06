@@ -1,11 +1,12 @@
 import React, { createContext, useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import { apiKey } from "../components/config";
+//import { apiKey } from "../components/config";
 export const RecommendationContext = createContext();
 
 const RecommendationContextProvider = props => {
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
+  const apiKey = process.env.AUTH_TOKEN;
   
   const runSearch = useCallback((location, type) => {
     axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search?location=${location}`,
