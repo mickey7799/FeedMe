@@ -24,11 +24,7 @@ const Wrapper = styled.div`
         margin: auto;
         justify-content: center;
     }
-    @media (max-width: 360px){
-        // margin: 3px;
-    }
     
-
 `;
 
 const ShareWrapper = styled.div`
