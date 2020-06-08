@@ -1,7 +1,9 @@
 # Feed Me
-### Demo View
+### Demo
 
-![](/demo.png)
+[](https://mickey7799.github.io/FeedMe/)
+
+![Demo of Feed Me](https://mickey7799.github.io/FeedMe/)
 
 ### Overview
 
