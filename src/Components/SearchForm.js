@@ -10,8 +10,9 @@ const Form = styled.form`
 const LocationInput = styled.input`
     flex-grow: 1;
     border-width: 0 0 1px 0;
-    margin: 15px 10px 15px 15px;
-    padding: 10px;
+    margin: 1em 0.5em 1em 1em;
+    padding: 1em;
+    width: 20%;
     background-color: #F8F8F8;
     border-style: none;
     text-shadow: none;
@@ -26,8 +27,9 @@ const LocationInput = styled.input`
 const TypeInput = styled.input`
     flex-grow: 1;
     border-width: 0 0 1px 0;
-    margin: 15px 10px 15px 15px;
-    padding: 10px;
+    margin: 1em 0.5em 1em 1em;
+    padding: 1em;
+    width: 20%;
     background-color: #F8F8F8;
     border-style: none;
     text-shadow: none;
@@ -42,8 +44,9 @@ const TypeInput = styled.input`
 const SubmitInput = styled.input`
     display: block;
     font-size: 1em;
-    margin: 15px 15px 15px 15px; 
-    padding: 10px;
+    margin: 1em 1.5em 1em 1em;
+    padding: 1em;
+    width: 15%;
     background-color: #E34B44;
     border: none;
     color: #FFFFFF;

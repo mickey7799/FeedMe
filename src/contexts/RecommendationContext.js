@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useCallback } from "react";
 import axios from "axios";
-//import { apiKey } from "../components/config";
+import { apiKey } from "../components/config";
 export const RecommendationContext = createContext();
 
 const RecommendationContextProvider = props => {

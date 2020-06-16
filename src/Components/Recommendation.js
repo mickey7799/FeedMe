@@ -50,7 +50,6 @@ const Wrapper = styled.div`
         padding-right: 10px;
         padding-left: 10px;
     }
-
 `;
 
 const Profile = styled.div`
@@ -87,7 +86,6 @@ const InfoWrapper = styled.div`
         margin-left: 10px;
         max-width: 150px;
     }
-
 `;
 
 const Name = styled.div`
@@ -132,7 +130,6 @@ const DescriptionWrapper = styled.div`
     @media (max-width: 769px){
         margin-top: 10px;
     }
-
 `;
 
 const Commnet = styled.div`
@@ -158,7 +155,6 @@ const Commnet = styled.div`
         margin-right: 10px;
         margin-left: 10px;
     }
-
 `;
 
 const FoodImg = styled.div`
@@ -170,7 +166,6 @@ const FoodImg = styled.div`
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     background-image: url(${props => props.url});
-
 `;
 
 const Recommendation = () => {

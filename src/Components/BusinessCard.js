@@ -12,7 +12,7 @@ const CardFront = styled.div`
     align-items: center;
     justify-content: flex-end;
     border: 0.75px solid #e5e5e5;
-    background-image: url("/images/front.jpg");
+    background-image: url("images/front.jpg");
     background-position: center;
     background-size: cover;
     box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, .1);
@@ -34,7 +34,7 @@ const CardBack = styled.div`
     align-items: flex-start;
     justify-content: space-between;
     border: 0.75px solid #e5e5e5;
-    background-image: url("/images/back.jpg");
+    background-image: url("images/back.jpg");
     background-position: center;
     background-size: cover;
     box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, .1);
