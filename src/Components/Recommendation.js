@@ -58,7 +58,7 @@ const Profile = styled.div`
     height: 75px;
     background-size: cover;
     background-position: center;
-    background-image: url("/images/child.svg");
+    background-image: url("images/child.svg");
     @media (max-width: 769px){
         width: 100px;
         height: 100px;
@@ -176,7 +176,7 @@ const Recommendation = () => {
     ): (
         <Card>
             <Wrapper>
-                <Profile profileUrl={recommendations.image_url} />
+                <Profile />
                 <InfoWrapper>
                     <Name>{recommendations.name}</Name>
                     <DescriptionWrapper>
